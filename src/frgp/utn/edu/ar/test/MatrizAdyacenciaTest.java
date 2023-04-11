@@ -6,10 +6,13 @@ import frgp.utn.edu.ar.main.MatrizAdyacencia;
 
 class MatrizAdyacenciaTest {
 	
+	private int cantidad = 4;
+	private MatrizAdyacencia matriz = new MatrizAdyacencia(Cantidad);
+	
 	/// Punto A: agregarElementoTest
 	@Test
     public void agregarElementoTest() {
-        MatrizAdyacencia matriz = new MatrizAdyacencia(3); 
+        //MatrizAdyacencia matriz = new MatrizAdyacencia(3); 
         matriz.agregarElemento(1, 2); 
         assertTrue(matriz.existeElemento(1, 2)); 
     }
@@ -19,7 +22,7 @@ class MatrizAdyacenciaTest {
 	public void agregarElementoSimetriaTest() {
 		
 		/// Arrange 
-		MatrizAdyacencia matriz = new MatrizAdyacencia(4); 
+		//MatrizAdyacencia matriz = new MatrizAdyacencia(4); 
 		matriz.agregarElemento(2, 3);
 		/// Act
 		boolean check = matriz.existeElemento(3, 2);
@@ -27,6 +30,16 @@ class MatrizAdyacenciaTest {
 		assertTrue(check);
 	}
 	/// Punto C: eliminarElementoTest
+	@Test
+	public void eliminarElementoTest() {
+		/// Arrange
+		matriz.agregarElemento(1,0);
+		matriz.eliminarElemento(1,0);
+		/// Act
+		boolean check = matriz.existeElemento(1,0);
+		/// Assert
+		assertFalse(check);
+	}
 	
 	/// Punto D: eliminarElementoSimetricoTest
 	
