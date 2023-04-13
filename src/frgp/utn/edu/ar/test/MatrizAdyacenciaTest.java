@@ -6,8 +6,8 @@ import frgp.utn.edu.ar.main.MatrizAdyacencia;
 
 class MatrizAdyacenciaTest {
 	
-	private int cantidad = 4;
-	private MatrizAdyacencia matriz = new MatrizAdyacencia(cantidad);
+	private final int CANTIDAD = 4;
+	private MatrizAdyacencia matriz = new MatrizAdyacencia(CANTIDAD);
 	
 	/// Punto A: agregarElementoTest
 	@Test
@@ -62,9 +62,9 @@ class MatrizAdyacenciaTest {
 		matriz.agregarElemento(1, 2);
 		matriz.agregarElemento(2, 2);
 		int cont=0;
-		for(int i=0; i<=Cantidad-1; i++)
+		for(int i=0; i<=CANTIDAD-1; i++)
 		{
-		   for(int j=0; j<=Cantidad-1; j++)
+		   for(int j=0; j<=CANTIDAD-1; j++)
 			   if(matriz.existeElemento(i, j)==matriz.existeElemento(j, i) && matriz.existeElemento(i, j)==true)
 				   cont++;
 		}
@@ -73,7 +73,28 @@ class MatrizAdyacenciaTest {
 	}
 	
 	/// Punto F: existenTodosLosElementoTest
-	
+	@Test
+	public void existenTodosLosElementoTest() {
+		/// Arrange
+		/// Recorre sólo un lado de la matriz (Y evita la diagonal) y agrega 1 en el nodo y su simétrico
+		for(int i=0; i<CANTIDAD-1; i++) {
+			for(int j=CANTIDAD-1; j>i; j--) {
+				matriz.agregarElemento(i, j);
+			}
+		}
+		/// Act
+		/// Recorre el mismo patrón del anterior y pregunta por el nodo y su opuesto
+		boolean val = true;
+		for(int i=0; i<CANTIDAD-1; i++) {
+			for(int j=CANTIDAD-1; j>i; j--) {
+				if(!matriz.existeElemento(i, j) || !matriz.existeElemento(j, i)){
+					val = false;
+				}
+			}
+		}
+		/// Assert
+		assertTrue(val);
+	}
 	/// Punto G: agregarElementoFilaNegativaTest
 		
 	/// Punto H: agregarElementoColumnaNegativaTest
