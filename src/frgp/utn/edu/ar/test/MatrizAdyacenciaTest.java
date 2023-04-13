@@ -56,11 +56,26 @@ class MatrizAdyacenciaTest {
 	}
 	
 	/// Punto E: contarRelacionesTest
+	@Test
+	public void contarRelacionesTest() {
+		matriz.agregarElemento(0, 1);
+		matriz.agregarElemento(1, 2);
+		matriz.agregarElemento(2, 2);
+		int cont=0;
+		for(int i=0; i<=Cantidad-1; i++)
+		{
+		   for(int j=0; j<=Cantidad-1; j++)
+			   if(matriz.existeElemento(i, j)==matriz.existeElemento(j, i) && matriz.existeElemento(i, j)==true)
+				   cont++;
+		}
+		cont = cont/2;
+		assertEquals(matriz.getCantidadElementos(),cont);
+	}
 	
 	/// Punto F: existenTodosLosElementoTest
 	
 	/// Punto G: agregarElementoFilaNegativaTest
-	
+		
 	/// Punto H: agregarElementoColumnaNegativaTest
 	
 	/// Punto I: agregarElementoFueraRangoTest
