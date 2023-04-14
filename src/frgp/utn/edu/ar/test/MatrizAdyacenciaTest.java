@@ -76,14 +76,14 @@ class MatrizAdyacenciaTest {
 	@Test
 	public void existenTodosLosElementoTest() {
 		/// Arrange
-		/// Recorre sólo un lado de la matriz (Y evita la diagonal) y agrega 1 en el nodo y su simétrico
+		/// Recorre sï¿½lo un lado de la matriz (Y evita la diagonal) y agrega 1 en el nodo y su simï¿½trico
 		for(int i=0; i<CANTIDAD-1; i++) {
 			for(int j=CANTIDAD-1; j>i; j--) {
 				matriz.agregarElemento(i, j);
 			}
 		}
 		/// Act
-		/// Recorre el mismo patrón del anterior y pregunta por el nodo y su opuesto
+		/// Recorre el mismo patrï¿½n del anterior y pregunta por el nodo y su opuesto
 		boolean val = true;
 		for(int i=0; i<CANTIDAD-1; i++) {
 			for(int j=CANTIDAD-1; j>i; j--) {
@@ -95,10 +95,15 @@ class MatrizAdyacenciaTest {
 		/// Assert
 		assertTrue(val);
 	}
+	
 	/// Punto G: agregarElementoFilaNegativaTest
-		
+	@Test
+	public void agregarElementoFilaNegativaTest() {
+		assertThrows(IndexOutOfBoundsException.class, () -> {
+			matriz.agregarElemento(-1, 0);
+		});
+	}
 	/// Punto H: agregarElementoColumnaNegativaTest
 	
-	/// Punto I: agregarElementoFueraRangoTest
-	
+	/// Punto I: agregarElementoFueraRangoTest	
 }
