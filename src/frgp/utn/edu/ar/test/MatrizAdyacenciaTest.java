@@ -104,6 +104,12 @@ class MatrizAdyacenciaTest {
 		});
 	}
 	/// Punto H: agregarElementoColumnaNegativaTest
+	@Test
+	public void agregarElementoColumnaNegativaTest() {
+		assertThrows(IndexOutOfBoundsException.class, () -> {
+			matriz.agregarElemento(0, -1);
+		});
+	}
 	
 	/// Punto I: agregarElementoFueraRangoTest	
 }
