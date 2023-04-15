@@ -111,5 +111,14 @@ class MatrizAdyacenciaTest {
 		});
 	}
 	
-	/// Punto I: agregarElementoFueraRangoTest	
+	/// Punto I: agregarElementoFueraRangoTest
+	@Test
+	public void agregarElementoFueraRangoTest() throws ArrayIndexOutOfBoundsException {
+		try{
+			matriz.agregarElemento(5,5);
+		}
+		catch(ArrayIndexOutOfBoundsException EX) {
+			System.out.println("Te encuentras fuera del rango permitido.");				
+		}
+	}
 }
