@@ -103,6 +103,7 @@ class MatrizAdyacenciaTest {
 			matriz.agregarElemento(-1, 0);
 		});
 	}
+	
 	/// Punto H: agregarElementoColumnaNegativaTest
 	@Test
 	public void agregarElementoColumnaNegativaTest() {
@@ -114,11 +115,8 @@ class MatrizAdyacenciaTest {
 	/// Punto I: agregarElementoFueraRangoTest
 	@Test
 	public void agregarElementoFueraRangoTest() throws ArrayIndexOutOfBoundsException {
-		try{
-			matriz.agregarElemento(5,5);
-		}
-		catch(ArrayIndexOutOfBoundsException EX) {
-			System.out.println("Te encuentras fuera del rango permitido.");				
-		}
+		assertThrows(IndexOutOfBoundsException.class, () -> {
+			matriz.agregarElemento(5, 5);
+		});
 	}
 }
