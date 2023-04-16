@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import frgp.utn.edu.ar.main.MatrizAdyacencia;
 
-class MatrizAdyacenciaTest {
+public class MatrizAdyacenciaTest {
 	
 	private final int CANTIDAD = 4;
 	private MatrizAdyacencia matriz = new MatrizAdyacencia(CANTIDAD);
